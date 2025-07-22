@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Explore – SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: rgba(106, 90, 205, 0.9);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #leftArrow, #rightArrow {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2rem;
+      color: #4b0082;
+    }
+
+    .action-box {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin: 20px;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .action-box h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .action-box button {
+      background: #6a5acd;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .action-box button.offer {
+      background-color: #ff69b4;
+    }
+
+    .action-box button:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #6a5acd;
+      bottom: 0;
+      font-weight: 600;
+      position: fixed;
+      width: 99.9%;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer .left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    footer .right {
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .action-box {
+        padding: 20px;
+      }
+
+      .action-box button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <button id="leftArrow" onclick="goback()">&#8592;</button>
+      <button id="rightArrow" onclick="goforward()">&#8594;</button>
+    </div>
+    <div>SkillSwap</div>
+    <nav>
+      <a href="explore.html" onclick="navClick('Explore')">Explore</a>
+      <a href="Categories.html" onclick="navClick('Categories')">Categories</a>
+      <a href="sigin.html" onclick="navClick('SignIn')">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Heading -->
+  <h1>Welcome to SkillSwap</h1>
+
+  <!-- Stylish Button Section -->
+  <div class="action-box">
+    <h2>Get Started</h2>
+    <button onclick="location.href='explore.html'">Explore Now</button>
+    <button class="offer" onclick="location.href='offeryourskill.html'">Offer Your Skill</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="left">
+        <p>&copy; 2025 SkillSwap Market. All rights reserved. | Terms & Conditions</p>
+      </div>
+      <div class="right">
+        <p>Contact us: 7041060964</p>
+      </div>
+      <p>Follow us:
+        <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="24">
+        <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="24">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="24">
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showInfo(message) {
+      alert("You selected: " + message);
+    }
+    function navClick(page) {
+      alert(page + " clicked!");
+    }
+    function goback() {
+      window.location.href = "index.html"; // fallback
+  }
+
+  function goforward() {
+    window.location.href = "explore.html"; // fallback
+  }
+  </script>
+
+</body>
+</html>

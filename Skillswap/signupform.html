@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .signup-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    form label {
+      font-size: 14px;
+      color: #444;
+      display: block;
+      margin-top: 12px;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #a6c1ee;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    form button:hover {
+      background-color: #8da8dd;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .link a {
+      color: #6b5b95;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    button a{
+        text-decoration: none;
+        color:#6b5b95;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <form id="signupForm">
+      <label>First Name</label>
+      <input type="text" id="firstName" required />
+
+      <label>Last Name</label>
+      <input type="text" id="lastName" required />
+
+      <label>Surname</label>
+      <input type="text" id="surname" required />
+
+      <label>Age</label>
+      <input type="number" id="age" required min="1" />
+
+      <label>Gender</label>
+      <select id="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label>Email</label>
+      <input type="email" id="email" required />
+
+      <label>Password</label>
+      <input type="password" id="password" required />
+
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPassword" required />
+
+      <div id="errorMsg" class="error"></div>
+
+      <button type="submit"><a href="home.html">Sign Up</a></button>
+    </form>
+    <div class="link">
+      <p>Already have an account? <a href="sigin.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent form from submitting
+      
+      const age = document.getElementById("age").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorDiv = document.getElementById("errorMsg");
+
+      errorDiv.textContent = "";
+
+      if (age < 13) {
+        errorDiv.textContent = "You must be at least 13 years old.";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        errorDiv.textContent = "Passwords do not match.";
+        return;
+      }
+
+      alert("Form submitted successfully!");
+      // You can now send the form data to backend here
+    });
+  </script>
+</body>
+</html>

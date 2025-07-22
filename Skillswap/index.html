@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillSwap Market</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.splash-container {
+  text-align: center;
+  color: white;
+}
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: white;
+  color: #6a5acd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+button:hover {
+  background-color: #f1f1f1;    
+    transform: scale(1.05);
+}
+
+</style>
+<body>
+  <div class="splash-container">
+    <h1 class="title">SkillSwap Market</h1>
+    <p class="tagline">Buy or Barter Skills. One place to trade.</p>
+    <button onclick="enterSite()">Enter Marketplace →</button>
+  </div>
+<script>
+    function enterSite() {
+  // Redirect to your main site page
+  window.location.href = "home.html"; // Change to your actual page
+}
+</script>
+</body>
+</html>

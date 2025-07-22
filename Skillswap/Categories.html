@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(106, 90, 205, 0.9);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    #leftArrow, #rightArrow {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .heading {
+      text-align: center;
+      color: white;
+      margin: 10px;
+    }
+
+    .heading h1 {
+      font-weight: bolder;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 60px;
+    }
+
+    .heading h2 {
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 30px;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    .product-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(106, 90, 205, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card p {
+      color: #6a5acd;
+    }
+
+    .buttons {
+      display: flex;
+      color: white;
+      font-weight: bolder;
+      justify-content: center;
+      gap: 400px;
+      margin: 20px 0;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #6a5acd;
+      font-weight: 600;
+      bottom: 0px;
+      position: absolute;
+      width: 100%;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer .left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    footer .right {
+      text-align: right;
+    }
+
+    .add-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #newItemInput {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      width: 250px;
+    }
+
+    .add-button {
+      margin-left: 10px;
+      padding: 10px 15px;
+      background: #6a5acd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .add-button:hover {
+      background-color: #5b4acb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <button id="leftArrow" onclick="goback()">&#8592;</button>
+      <button id="rightArrow" onclick="goforward()">&#8594;</button>
+    </div>
+    <div>SkillSwap</div>
+    <nav>
+      <a href="explore.html" onclick="navClick('Explore')">Explore</a>
+      <a href="Categories.html" onclick="navClick('Categories')">Categories</a>
+      <a href="sigin.html" onclick="navClick('SignIn')">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Heading -->
+  <div class="heading">
+    <h1>Explore Skill Categories</h1>
+    <h2>Find what you're passionate about</h2>
+  </div>
+
+  <!-- Main -->
+  <main>
+    <div class="product-grid" id="productGrid">
+      <div class="product-card" onclick="showInfo('Design')"><p>Design</p></div>
+      <div class="product-card" onclick="showInfo('Writing')"><p>Writing</p></div>
+      <div class="product-card" onclick="showInfo('Programming')"><p>Programming</p></div>
+      <div class="product-card" onclick="showInfo('Music')"><p>Music</p></div>
+      <div class="product-card" onclick="showInfo('Tutoring')"><p>Tutoring</p></div>
+      <div class="product-card" onclick="showInfo('Marketing')"><p>Marketing</p></div>
+      <div class="product-card" onclick="showInfo('Photography')"><p>Photography</p></div>
+      <div class="product-card" onclick="showInfo('DIY')"><p>DIY</p></div>
+    </div>
+
+    <!-- Add More Section -->
+    <div class="add-section">
+      <input type="text" id="newItemInput" placeholder="Enter new category">
+      <button class="add-button" onclick="addNewItem()">+ Add More</button>
+    </div>
+  </main>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="left">
+        <p>&copy; 2025 SkillSwap Market. All rights reserved. | Terms & Conditions</p>
+      </div>
+      <div class="right">
+        <p>Contact us: 7041060964</p>
+        <p>Follow us:
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="24">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="24">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="24">
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function showInfo(message) {
+      alert("You selected: " + message);
+    }
+    function navClick(tab) {
+      alert(tab + " clicked!");
+    }
+    function goback() {
+      window.location.href = "explore.html"; // fallback
+     }
+    function goforward() {
+     window.location.href = "sigin.html"; // fallback
+     }
+    function addNewItem() {
+      const input = document.getElementById("newItemInput");
+      const value = input.value.trim();
+      
+      if (value === "") {
+        alert("Please enter a category name.");
+        return;
+      }
+
+      const grid = document.getElementById("productGrid");
+
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.onclick = function () {
+        showInfo(value);
+      };
+
+      const para = document.createElement("p");
+      para.textContent = value;
+
+      card.appendChild(para);
+      grid.appendChild(card);
+
+      input.value = ""; // clear input
+    }
+  </script>
+
+</body>
+</html>

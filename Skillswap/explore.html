@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Explore – SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+  header {
+      background: rgba(106, 90, 205, 0.9);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  #leftArrow, #rightArrow {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  h1 {
+      text-align: center;
+      margin: 30px 0 10px;
+    }
+  .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      flex: 1;
+    }
+  .product-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(106, 90, 205, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+  .product-card:hover {
+      transform: translateY(-5px);
+    }
+  .product-card h3 {
+    color: #6a5acd;
+    }
+  footer {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #6a5acd;
+  font-weight: 600;
+  }
+  footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer .left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+footer .right {
+  text-align: right;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <button id="leftArrow" onclick="goback()">&#8592;</button>
+      <button id="rightArrow" onclick="goforward()">&#8594;</button>
+    </div>
+    <div>SkillSwap</div>
+    <nav>
+      <a href="explore.html" onclick="navClick('Explore')">Explore</a>
+      <a href="Categories.html" onclick="navClick('Categories')">Categories</a>
+      <a href="sigin.html" onclick="navClick('SignIn')">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Title -->
+  <h1>Explore SkillSwap Products</h1>
+
+  <!-- Products -->
+  <div class="product-grid">
+    <div class="product-card" onclick="showInfo('Custom Logo Design - Art & Design')">
+      <h3>Custom Logo Design</h3>
+      <p>Art & Design</p>
+    </div>
+    <div class="product-card" onclick="showInfo('Java Tutoring - Tutoring')">
+      <h3>Java Tutoring</h3>
+      <p>Tutoring</p>
+    </div>
+    <div class="product-card" onclick="showInfo('Full Stack Website - Web Development')">
+      <h3>Full Stack Website</h3>
+      <p>Web Development</p>
+    </div>
+    <div class="product-card" onclick="showInfo('Handmade Origami - Crafts')">
+      <h3>Handmade Origami</h3>
+      <p>Crafts</p>
+    </div>
+    <div class="product-card" onclick="showInfo('Physics Coaching - Tutoring')">
+      <h3>Physics Coaching</h3>
+      <p>Tutoring</p>
+    </div>
+    <div class="product-card" onclick="showInfo('Illustration Artwork - Art & Design')">
+      <h3>Illustration Artwork</h3>
+      <p>Art & Design</p>
+    </div>
+  </div>
+    
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="left">
+    <p>&copy; 2025 SkillSwap Market. All rights reserved. | Terms & Conditions</p>
+ 
+      </div>
+      <div class="right">
+        <p>Contact us:7041060964
+    </div>
+     <p>Follow us:
+      <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="24">
+      <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="24">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="24">
+    </p>
+    </div>
+  </footer>
+  
+  <script>
+    function showInfo(message) {
+      alert("You selected: " + message);
+    }
+      function navClick(Explore){
+      alert("You are already on Explore Page!: " +  Explore);
+    }
+    function navClick(Categories){
+      alert(Categories + "clicked!");
+    }
+     function navClick(SignIn){
+        alert(SignIn + "clicked!");
+     }
+     function goback() {
+      window.location.href = "home.html"; // fallback
+      }
+      function goforward() {
+      window.location.href = "Categories.html"; // fallback
+     }
+  </script>
+
+</body>
+</html>
